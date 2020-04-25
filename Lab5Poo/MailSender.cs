@@ -30,5 +30,6 @@ namespace Lab5Poo
         public delegate void EmailSendEventHandler(object source, EmailSendEventArgs args);
         // Paso 2: Creamos el evento que se engatilla cuando se envia el mail de verifiacion
         public event EmailSendEventHandler EmailSent;
+
     }
 }

@@ -8,19 +8,25 @@ namespace Lab5POO
 {
     public class User
     {
-        // Paso 1: Creamos el delegate para el evento de mandar mail de verificacion
+
         public delegate void EmailVerificationEventHandler(object source, EmailVerificationEventArgs args);
-        // Paso 2: Creamos el evento que se engatilla cuando se verifica el mail
+
         public event EmailVerificationEventHandler EmailVerified;
-        //Metodo
+
+
         protected virtual void OnEmailSent(string username, string email)
         {
-            string respuesta;
-            Console.WriteLine("¿Desea Verificar su mail?");
-            respuesta = Console.ReadLine();
-            if (respuesta=="Si")
+            // Verifica si hay alguien suscrito al evento
+            if (EmailVerified != null)
             {
-                EmailVerified(this, new EmailVerificationEventHandler() {Username=username, Email=email} );
+                string respuesta;
+                Console.WriteLine("¿Desea confirmar su correo?");
+                respuesta = Console.ReadLine();
+                if (respuesta == "Si")
+                {
+                    // Engatilla el evento
+                    EmailVerified(this, new EmailVerificationEventArgs() { Username = username, Email = email });
+                }
             }
         }
     }

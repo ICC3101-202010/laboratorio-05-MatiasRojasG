@@ -41,6 +41,26 @@ namespace Lab5Poo
         }
 
 
+        protected virtual void OnEmailVerified(string username, string email)
+        {
+            Console.WriteLine("Email Verificado Correctamente");
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
