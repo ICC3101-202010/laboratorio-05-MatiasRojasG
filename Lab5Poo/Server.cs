@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Lab5POO;
 
 namespace Lab5Poo
 {
@@ -38,6 +39,10 @@ namespace Lab5Poo
                 PasswordChanged(this, new ChangePasswordEventArgs() { Username = username, Email = email, Number = number });
             }
         }
+
+
+
+
 
 
         // Atributo BaseDatos
@@ -107,6 +112,20 @@ namespace Lab5Poo
                 Console.WriteLine("[!] ERROR: " + result + "\n");
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // Metodo que genera un link de verificacion, dado un usuario
         private string GenerateLink(string usr)

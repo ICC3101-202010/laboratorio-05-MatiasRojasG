@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Lab5POO;
 
 namespace Lab5Poo
 {
@@ -26,6 +27,9 @@ namespace Lab5Poo
             server.PasswordChanged += smsSender.OnPasswordChanged;
 
 
+
+
+
             // Controla la ejecucion mientras el usuario no quiera salir
             bool exec = true;
             while (exec)
@@ -38,6 +42,7 @@ namespace Lab5Poo
                         Console.Clear();
                         server.Register();
                         break;
+
                     case "Cambiar contrasena":
                         Console.Clear();
                         server.ChangePassword();
@@ -45,6 +50,7 @@ namespace Lab5Poo
                     case "Salir":
                         exec = false;
                         break;
+
                 }
                 Thread.Sleep(2000);
                 Console.Clear();

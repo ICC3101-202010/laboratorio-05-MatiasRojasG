@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Lab5POO;
 
 namespace Lab5Poo
 {
@@ -21,5 +22,13 @@ namespace Lab5Poo
             Thread.Sleep(2000);
         }
 
+
+
+        //Paso 1 Tarea
+
+        // Paso 1: Creamos el delegate para el evento de mandar mail de verificacion
+        public delegate void EmailSendEventHandler(object source, EmailSendEventArgs args);
+        // Paso 2: Creamos el evento que se engatilla cuando se envia el mail de verifiacion
+        public event EmailSendEventHandler EmailSent;
     }
 }
