@@ -24,14 +24,16 @@ namespace Lab5Poo
                 Registered(this, new RegisterEventArgs() { VerificationLink = verificationlink, Password = password, Username = username, Email = email });
             }
         }
+        public void OnEmailVerified(object source, EmailVerificationEventArgs e)
+        {
+            Console.WriteLine("Email Verificado Correctamente ", e.Username, " ", e.Email);
 
-        // Paso 1: Creamos el delegate para el evento del cambio de contrasena
+        }
+
+
+
         public delegate void ChangePasswordEventHandler(object source, ChangePasswordEventArgs args);
-        // Paso 2: Creamos el evento que se engatilla cuando se cambia la contrasena
         public event ChangePasswordEventHandler PasswordChanged;
-        // Paso 3: Publicamos el evento. Notar que cuando se quiere engatillar el evento, se llama OnPasswordChanged(). 
-        // Por definicion, debe ser protected virtual. Los parametros que recibe son los necesarios para crear una instancia
-        // de la clase ChangePasswordEventArgs
         protected virtual void OnPasswordChanged(string username, string email, string number)
         {
             if (PasswordChanged != null)
@@ -39,30 +41,6 @@ namespace Lab5Poo
                 PasswordChanged(this, new ChangePasswordEventArgs() { Username = username, Email = email, Number = number });
             }
         }
-
-
-        protected virtual void OnEmailVerified(string username, string email)
-        {
-            Console.WriteLine("Email Verificado Correctamente");
-            
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         // Atributo BaseDatos
@@ -78,6 +56,7 @@ namespace Lab5Poo
         // Realiza el registro 
         public void Register()
         {
+            string respuesta;
             // Pedimos todos los datos necesarios
             Console.Write("Bienvenido! Ingrese sus datos de registro en PlusCorporation\nUsuario: ");
             string usr = Console.ReadLine();
@@ -103,6 +82,13 @@ namespace Lab5Poo
                 // Mostramos el error
                 Console.WriteLine("[!] ERROR: " + result + "\n");
             }
+            Console.WriteLine("Desea verificar su correo?");
+            respuesta = Console.ReadLine();
+            if (respuesta == "Si")
+            {
+                OnEmailVerified(usr, email);
+            }
+
         }
 
         // Realiza el cambio de contrasena

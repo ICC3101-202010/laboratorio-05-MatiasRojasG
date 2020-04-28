@@ -24,6 +24,8 @@ namespace Lab5Poo
 
 
 
+
+
         //Paso 1 Tarea
 
         // Paso 1: Creamos el delegate para el evento de mandar mail de verificacion
