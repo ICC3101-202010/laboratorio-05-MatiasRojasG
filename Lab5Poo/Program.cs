@@ -31,6 +31,7 @@ namespace Lab5Poo
             user.EmailVerified += server.OnEmailVerified;
 
 
+
             // Controla la ejecucion mientras el usuario no quiera salir
             bool exec = true;
             while (exec)
